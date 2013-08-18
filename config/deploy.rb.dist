@@ -4,14 +4,16 @@ ssh_options[:forward_agent] = true
 
 set :application, "popalerts.peterwarnock.com"
 set :scm, "git"
-set :repository,  "git@github.com:pwarnock/popalerts.peterwarnock.com.git"
+set :repository,  "git@github.com:gituser/repo.git"
 set :branch, "master"
-set :user, "nann"
-set :deploy_to, "/home/nann/popalerts.peterwarnock.com"
+set :user, "username"
+set :deploy_to, "/home/username/popalerts.peterwarnock.com"
 set :use_sudo, false 
 set :deploy_via, :remote_cache
 
 server "popalerts.peterwarnock.com", :app, :web, :db, :primary => true
+
+after 'deploy:finalize_update', 'composer:install'
 
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy:restart", "deploy:cleanup"
