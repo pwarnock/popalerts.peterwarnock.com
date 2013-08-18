@@ -1,4 +1,5 @@
 require 'rubygems'
 require 'railsless-deploy'
+require 'bundler/setup'
+require 'capistrano/composer'
 load    'config/deploy'
-
