@@ -1,20 +1,35 @@
 {
-    "name": "zendframework/skeleton-application",
-    "description": "Skeleton Application for ZF2",
+    "name": "pwarnock/popalerts",
+    "description": "POP Alerts",
     "license": "BSD-3-Clause",
     "keywords": [
-        "framework",
-        "zf2"
+        "popalerts",
+        "twilio"
     ],
-    "homepage": "http://framework.zend.com/",
+    "homepage": "http://popalerts.peterwarnock.com",
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": ">2.2.0rc1",
         "zf-commons/zfc-user": "0.1.*@dev",
         "zf-commons/zfc-admin": "0.1.*@dev",
-        "twilio/sdk": "3.10.*"
+        "twilio/sdk": "3.10.*",
+        "google-api-php-client": "0.6.6",
+        "bjyoungblood/bjy-authorize": "1.4.*"
     },
     "require-dev": {
         "ccampbell/chromephp": "4.1.*"
-    }
+    },
+    "repositories": [
+        {
+        	"type": "package",
+        	"package": {
+        		"name": "google-api-php-client",
+        		"version": "0.6.6",
+        		"dist": {
+        			"url": "https://google-api-php-client.googlecode.com/files/google-api-php-client-0.6.6.tar.gz",
+        			"type": "tar"
+        		}
+        	}
+        }
+    ]
 }

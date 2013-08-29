@@ -19,7 +19,7 @@ class IndexController extends AbstractActionController implements LoggerAwareInt
 
     public function indexAction()
     {
-        $this->logger && $this->logger->debug('Enter ' . __METHOD__);
+        $this->logger && $this->logger->debug('Enter ' . __METHOD__);     
         return new ViewModel();
     }
 }

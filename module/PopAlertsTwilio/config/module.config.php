@@ -19,13 +19,13 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
-          'SmsDistributionList' => 'PopAlertsTwilio\Service\SmsDistributionListFactory',  
+            'SmsDistributionList' => 'PopAlertsTwilio\Service\SmsDistributionListFactory',
+            'PopAlertsTwilio\AuthenticationService' => 'PopAlertsTwilio\Service\AuthenticationServiceFactory',
         ),
         'abstract_factories' => array(
             'Zend\Form\FormAbstractServiceFactory'
         ),
-        'aliases' => array(
-        ),
+        'aliases' => array(),
         'invokables' => array(
             'Services_Twilio_Twiml' => 'Services_Twilio_Twiml',
         ),
@@ -69,8 +69,7 @@ return array(
     // Placeholder for console routes
     'console' => array(
         'router' => array(
-            'routes' => array(
-            ),
+            'routes' => array(),
         ),
     ),
     'pop_alerts_twilio' => array(
@@ -79,10 +78,16 @@ return array(
             'AuthToken' => '{{ auth_token }}',
         ),
         'sms_notify' => array(
-            'From' => '', //A Twilio number enabled for SMS. Only phone numbers purchased from Twilio work here; you cannot (for example) spoof SMS messages from your own cell phone number. 
+            'From' => '', //A Twilio number enabled for SMS. Only phone numbers purchased from Twilio work here; you cannot (for example) spoof SMS messages from your own cell phone number.
             'path' => 'data/pop-alerts/lists/sms_notify.txt.dist',
         ),
-        'path_sms_notify'
+        'http_config' => array(
+            'accept_schemes' => 'digest',
+            'realm' => 'Authorized Access Only',
+            'digest_domains' => '/notify',
+            'nonce_timeout' => 30,
+        ),
+        'passwd-digest' => '/path/to/passwd-digest',
     ),
     'forms' => include __DIR__ . '/forms.php',
 );

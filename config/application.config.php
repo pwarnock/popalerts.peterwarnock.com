@@ -6,6 +6,7 @@ return array(
         'Application',
         'ZfcBase',
         'ZfcUser',
+        'BjyAuthorize',
         'ZfcAdmin',
         'PopAlertsTwilio',
     ),
