@@ -21,6 +21,8 @@ return array(
         'factories' => array(
             'SmsDistributionList' => 'PopAlertsTwilio\Service\SmsDistributionListFactory',
             'PopAlertsTwilio\AuthenticationService' => 'PopAlertsTwilio\Service\AuthenticationServiceFactory',
+            'PopAlertsTwilio\OnSmsReceiveListener' => 'PopAlertsTwilio\Service\OnSmsReceiveListenerFactory',
+            'PopAlertsTwilio\SmsDistributionTableGateway' => 'PopAlertsTwilio\Service\SmsDistributionTableGatewayFactory',
         ),
         'abstract_factories' => array(
             'Zend\Form\FormAbstractServiceFactory'
@@ -43,6 +45,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'PopAlertsTwilio\Controller\Sms' => 'PopAlertsTwilio\Controller\SmsController',
+            'zfcuser' => 'PopAlertsTwilio\Controller\UserController',
         ),
     ),
     'controller_plugins' => array(

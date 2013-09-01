@@ -8,7 +8,6 @@ use Zend\Http\Response;
 use Zend\Http\Header\ContentType;
 use PopAlertsTwilio\Exception;
 use Zend\Mvc\MvcEvent;
-use PopAlertsTwilio\Listener\OnSmsReceiveListener;
 use PopAlertsTwilio\Event\SmsEvent;
 
 class SmsController extends AbstractActionController 
@@ -24,7 +23,8 @@ class SmsController extends AbstractActionController
                        ->authenticate();
 
         if ($result->isValid()) {
-            $this->getEventManager()->attach(new OnSmsReceiveListener());
+            $this->getEventManager()
+                 ->attach($this->serviceLocator->get('PopAlertsTwilio\OnSmsReceiveListener'));
             
             $logger = $this->logger;
             

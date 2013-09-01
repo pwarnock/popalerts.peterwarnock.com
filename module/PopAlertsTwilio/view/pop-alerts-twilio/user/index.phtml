@@ -1,0 +1,12 @@
+<div style="float:left; padding-right:16px;"><?php echo $this->gravatar($this->zfcUserIdentity()->getEmail()) ?></div>
+<h3><?php echo $this->translate('Hello'); ?>, <?php echo $this->zfcUserDisplayName() ?>!</h3>
+<a href="<?php echo $this->url('zfcuser/logout') ?>">[<?php echo $this->translate('Sign Out'); ?>]</a>
+<div style="clear:both;"></div>
+<style type="text/css">
+	#twilio-connect-button {
+		background: url(https://www.twilio.com/packages/connect-apps/images/connect-button.png);
+		width: 130px; height: 34px; display: block;	margin: 0 auto;
+	}
+	#twilio-connect-button:hover { background-position: 0 34px; }
+</style>
+<a href="<?php echo $this->authorize_link; ?>" id="twilio-connect-button"></a>
