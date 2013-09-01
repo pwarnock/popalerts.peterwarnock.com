@@ -27,7 +27,7 @@ class UserController extends ZfcUserController implements LoggerAwareInterface
                     $viewModel->authorize_link = $config['authorize_link'];
                     return $viewModel;
                 });
-        return parent::onDispatchst($e);
+        return parent::onDispatch($e);
     }
 
     public function indexAction()
